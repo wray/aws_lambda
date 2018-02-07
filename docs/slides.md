@@ -69,10 +69,60 @@ Powered by PyRVA
 
 
 
-## What is it good for
+## What is it good for?
 ### Alexa skills are a great way to get started
 ---
 * You can do this on a browser!
 * Publish a skill and get swag
 * [Get Promotional Credits](https://developer.amazon.com/alexa-skills-kit/alexa-aws-credits)
+* Does require an [amazon developer account](https://developer.amazon.com)
+
+
+## What is it good for?
+### Parallel processing, wow!
+---
+* [PyWren](pywren.io) is cool
+* Also requires awscli
+* `pip install pywren`
+* `pywren-setup`
+* Essentially build a function to be run in parallel to achieve results
+* Brute force string guess - divide and conquer, the string to guess
+
+
+
+## What about writing functions locally?
+### Uploading to the browser is kind of a pain
+---
+* [TravisCI](http://travis-ci.org) is a great, no-cost way to do lambda CI/CD
+* Travis understands AWS deployments, including lambda
+* 'Build' and package using transient docker images
+* Check out the .travis.yml
+* Still my preferred deployment since Travis can also deploy to pypi
+
+
+## Slightly more complex, but Enterprise-ready
+### Amazon provides a template to provision and update lambdas
+---
+* Create the pipeline
+* Add a buildspec.yml for CodeBuild
+  * Creates the cloudformation package
+  * Zip up the lambda
+* Define a lambda-sam.yaml for the lambda provision
+  * SAM - Serverless Application Model  
+
+
+## Environments for local testing
+### Some IDEs and also AWS allows local testing
+---
+* Eclipse and Visual Studio supports some local testing capability
+* serverless.com also supports this (but more JavaScript oriented)
+* [AWS SAM Local](https://docs.aws.amazon.com/lambda/latest/dg/test-sam-local.html) provides a local lambda container to test locally
+
+
+
+## Best for last...
+### Zappa!
+---
+* Instantly deploy your flask-app to lambda
+* Publish a Flask API via AWS API GW and lambda
 * 
