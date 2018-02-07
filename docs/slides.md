@@ -166,11 +166,12 @@ Powered by PyRVA
 
 ## Resources again
 ---
-* console.aws.amazon.com
-* github.com/alexa
-* developer.amazon.com
-* github.com/wray/aws_lambda
-* github.com/wray/lambda-pipe
-* github.com/wray/alexa_python (master and s3 branch)
-* github.com/wray/flask-restful-wsgi
-* www.zappa.io/
+* https://wray.github.io/aws_lambda/ (this deck)
+* https://console.aws.amazon.com
+* https://github.com/alexa
+* https://developer.amazon.com
+* https://github.com/wray/aws_lambda
+* https://github.com/wray/lambda-pipe
+* https://github.com/wray/alexa_python (master and s3 branch)
+* https://github.com/wray/flask-restful-wsgi
+* https://www.zappa.io/
