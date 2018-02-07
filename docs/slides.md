@@ -19,9 +19,11 @@ Powered by PyRVA
 * Consultant at CapTech Consulting
 * Owner at [Tech Em Studios](http://techemstudios.com)
 * Owner at [Wrayesian LLC](http://wrayesian.com)
+* Organizer of [AlexaRVA meetup](https://www.meetup.com/Alexa-User-Group/)
 
 
 
+<!-- .slide: data-background-image="images/lambda.jpg" -->
 ### What is AWS Lambda?
 ---
 * Run Python in AWS's cloud
@@ -34,6 +36,7 @@ Powered by PyRVA
 * Microsoft Functions / Google Cloud Functions
 
 
+<!-- .slide: data-background-image="images/lambda.jpg" -->
 ## How Much?
 ### Requests + cpu/memory usage
 ---
@@ -44,6 +47,7 @@ Powered by PyRVA
 * $0.00001667 for every GB-second thereafter
 
 
+<!-- .slide: data-background-image="images/lambda.jpg" -->
 ## Essentially Free
 ### More on making it free-er
 ---
@@ -54,12 +58,14 @@ Powered by PyRVA
 
 
 
+<!-- .slide: data-background-image="images/console.jpg" -->
 ## Let's Build One
 ### Requires AWS account
 ---
 * You can do this on a browser!
 
 
+<!-- .slide: data-background-image="images/console.jpg" -->
 * [AWS Console](https://console.aws.amazon.com)
 * AWS CLI
   * `pip install awscli`
@@ -69,13 +75,16 @@ Powered by PyRVA
 
 
 
+<!-- .slide: data-background-image="images/alexa.jpg" -->
 ## What is it good for?
 ### Alexa skills are a great way to get started
 ---
 * You can do this on a browser!
 * Publish a skill and get swag
 * [Get Promotional Credits](https://developer.amazon.com/alexa-skills-kit/alexa-aws-credits)
-* Does require an [amazon developer account](https://developer.amazon.com)
+* Does require an
+[amazon developer account](https://developer.amazon.com)
+* All kinds of templates/examples in [github.com](https://github.com/alexa)
 
 
 ## What is it good for?
@@ -89,19 +98,29 @@ Powered by PyRVA
 * Brute force string guess - divide and conquer, the string to guess
 
 
-
-## What about writing functions locally?
-### Uploading to the browser is kind of a pain
+## What is it good for?
+### Stateless APIs
 ---
-* [TravisCI](http://travis-ci.org) is a great, no-cost way to do lambda CI/CD
-* Travis understands AWS deployments, including lambda
+* Trigger via an AWS API Gateway
+* Easily build out RESTful CRUD
+* Fits nicely with a modern JavaScript FE and a lightweight API layer
+* We'll come back to this
+
+
+
+<!-- .slide: data-background-image="images/travis.jpg" -->
+## Dev Workflow
+### Lambda CI/CD
+---
+* [TravisCI](http://travis-ci.org) is a great, no-cost solution
+* Travis includes AWS targets including lambda
 * 'Build' and package using transient docker images
 * Check out the .travis.yml
-* Still my preferred deployment since Travis can also deploy to pypi
+* Can also deploy to pypi
 
 
-## Slightly more complex, but Enterprise-ready
-### Amazon provides a template to provision and update lambdas
+## Dev Workflow
+### Amazon SAM
 ---
 * Create the pipeline
 * Add a buildspec.yml for CodeBuild
@@ -111,8 +130,7 @@ Powered by PyRVA
   * SAM - Serverless Application Model  
 
 
-## Environments for local testing
-### Some IDEs and also AWS allows local testing
+## Local Dev
 ---
 * Eclipse and Visual Studio supports some local testing capability
 * serverless.com also supports this (but more JavaScript oriented)
@@ -120,9 +138,39 @@ Powered by PyRVA
 
 
 
+<!-- .slide: data-background-image="images/zappa.jpg" -->
 ## Best for last...
 ### Zappa!
 ---
 * Instantly deploy your flask-app to lambda
-* Publish a Flask API via AWS API GW and lambda
-* 
+* [Publish a Flask API via AWS API GW and lambda](https://github.com/wray/flask-restful-wsgi/tree/serverless)
+* Create a virtualenv for your flask app and activate
+* `pip install flask flask_restful zappa`
+* `zappa init`
+* `zappa deploy dev`
+* `zappa tail`
+
+
+<!-- .slide: data-background-image="images/zappa.jpg" -->
+## Zappa is pretty cool
+---
+* Want to build a stateless API immediately available to millions?
+* Create a simple flask app
+  * Use your normal Python services local tools
+  * Green Unicorn (gunicorn)
+* Deploy via Zappa
+  * Dependencies and project structure is packaged for you
+  * AWS API GW is created and as the trigger for the flask app lambda
+
+
+
+## Resources again
+---
+* console.aws.amazon.com
+* github.com/alexa
+* developer.amazon.com
+* github.com/wray/aws_lambda
+* github.com/wray/lambda-pipe
+* github.com/wray/alexa_python (master and s3 branch)
+* github.com/wray/flask-restful-wsgi
+* www.zappa.io/
